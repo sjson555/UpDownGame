@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var comNumber = Int.random(in: 1...10)
     
     // 내가 선택한 숫자를 담는 변수
-    var myNumber: Int = 1
+    // var myNumber: Int = 1
     
     // 앱의 화면에 들어오면 가장 처음에 실행되는 함수
     override func viewDidLoad() {
@@ -40,11 +40,18 @@ class ViewController: UIViewController {
         numberLabel.text = numString
         
         // 3) 선택한 숫자를 변수에 (문자열을 숫자로 변환 후) 저장 (선택 : 저장하지 않는 방식도 있음)
-        guard let num = Int(numString) else { return }
-        myNumber = num
+        // guard let num = Int(numString) else { return }
+        // myNumber = num
     }
     
     @IBAction func selectButtonTapped(_ sender: UIButton) {
+        // 0) myNumber 없이 구현
+        // 숫자레이블에 있는 문자열 가져오기(옵셔널 벗기기)
+        guard let myNumberString = numberLabel.text else { return }
+        // 타입 변환 (문자열 --> 정수)
+        guard let myNumber = Int(myNumberString) else { return }
+        
+        
         // 1) 컴퓨터의 숫자와 내가 선택한 숫자를 비교, Up / Down / Bingo (mainLabel)
         if comNumber > myNumber {
             mainLabel.text = "Up"
