@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         numberLabel.text = ""
         
     }
-
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
         // 1) 버튼의 숫자를 가져와야함
         // 반드시 각각 currentTitle을 가지고 있는 상황이니
@@ -47,9 +47,9 @@ class ViewController: UIViewController {
     @IBAction func selectButtonTapped(_ sender: UIButton) {
         // 0) myNumber 없이 구현
         // 숫자레이블에 있는 문자열 가져오기(옵셔널 벗기기)
-        guard let myNumberString = numberLabel.text else { return }
         // 타입 변환 (문자열 --> 정수)
-        guard let myNumber = Int(myNumberString) else { return }
+        guard let myNumberString = numberLabel.text,
+              let myNumber = Int(myNumberString) else { return }
         
         
         // 1) 컴퓨터의 숫자와 내가 선택한 숫자를 비교, Up / Down / Bingo (mainLabel)
